@@ -99,11 +99,13 @@ tamanho: ""
   createCliente(): void{
     let numero = this.cliente.cpfCnpj.replace(/[^\d]+/g,'');
     let validarCPF = this.clienteService.VerificarCPF(numero)
+    let repetirCPF = this.clienteService.validarCPF(numero)
+    console.log('numero:', repetirCPF._isScalar)
     this.cliente.carros = this.veiculos
     this.cliente.cpfCnpj = numero
     if(!validarCPF){
       this.clienteService.showMensagem("Esse CPF não existe")
-    }else if(numero){
+    }else if(repetirCPF._isScalar){
       this.clienteService.showMensagem("CPF já cadastrado")
     }else{
     const id =  this.route.snapshot.paramMap.get('id')

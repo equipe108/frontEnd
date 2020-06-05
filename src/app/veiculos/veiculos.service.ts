@@ -6,7 +6,8 @@ import {Carro} from '../veiculos/veiculo.model'
   providedIn: 'root'
 })
 export class VeiculosService {
-  private readonly carroUrl = "http://localhost:8080/carros"
+  // private readonly carroUrl = "http://localhost:8080/carros"
+  private readonly carroUrl = "https://lavajato-back.herokuapp.com/carros"
   constructor( private http: HttpClient) { }
 
   //Listar Veiculos
